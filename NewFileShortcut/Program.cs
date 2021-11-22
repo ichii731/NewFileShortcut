@@ -19,6 +19,7 @@ namespace NewFileShortcut
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());
             new MainForm();
+            new KeyControl();
             Application.Run();
         }
     }
