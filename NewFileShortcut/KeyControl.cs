@@ -2,6 +2,7 @@
 using SHDocVw;
 using Shell32;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,6 +14,7 @@ namespace NewFileShortcut
 {
     class KeyControl
     {
+        int vkey;
         // Declare external functions.
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
@@ -20,11 +22,17 @@ namespace NewFileShortcut
         [DllImport("user32.dll")]
         private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
-        public KeyControl()
+        public KeyControl(int _vkey)
+        {
+            //コンストラクタで35行目の引数を作成
+            vkey = _vkey;
+        }
+
+        public void StartKeyControl()
         {
             var keyboardHookManager = new KeyboardHookManager();
             keyboardHookManager.Start();
-            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, 0x54, () =>
+            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, vkey, () =>
             {
                 // STAスレッド
                 var t = new Thread(() =>
@@ -35,8 +43,9 @@ namespace NewFileShortcut
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
             });
-
         }
+
+
         static void CreateProcess()
         {
             try
@@ -67,8 +76,9 @@ namespace NewFileShortcut
                                 getfile = System.Web.HttpUtility.UrlDecode(getfile);
                                 //リストに追加
 
-                                FileStream fs = File.Create(getfile + "/new.csv");
-                                fs.Close();
+                                //FileStream fs = File.Create(getfile + "/new.csv");
+                                //fs.Close();
+                                File.WriteAllText(getfile + "/new.csv", "a,b,c,d,e,");
                             }
                         }
 

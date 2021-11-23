@@ -54,7 +54,6 @@ namespace NewFileShortcut
             // 
             // contextMenu
             // 
-            this.contextMenu.DropShadowEnabled = false;
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.ujuToolStripMenuItem,

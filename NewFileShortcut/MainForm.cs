@@ -26,7 +26,8 @@ namespace NewFileShortcut
 
         private void uuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            KeyConfig KeyConfig = new KeyConfig();
+            KeyConfig.Show();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
