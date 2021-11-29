@@ -1,60 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NewFileShortcut
 {
     public partial class Config : Form
     {
+        Microsoft.Win32.RegistryKey regkey = 
+            Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
+                @"Software\Microsoft\Windows\CurrentVersion\Run", true);
+
         public Config()
         {
             InitializeComponent();
+            string regValue = (string)regkey.GetValue(Application.ProductName);
+            if (regValue == Application.ExecutablePath)
+            {
+                checkBox1.Checked = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
-                SetStartup();
+                regkey.SetValue(Application.ProductName, Application.ExecutablePath);
+                regkey.Close();
             }
             else
             {
-                DeleteStartup();
+                regkey.DeleteValue(Application.ProductName, false);
+                regkey.Close();
             }
-            
-        }
-
-        public static void SetStartup()
-        {
-            Microsoft.Win32.RegistryKey regkey =
-                Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
-                @"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            regkey.SetValue(Application.ProductName, Application.ExecutablePath);
-            regkey.Close();
-        }
-        public static void DeleteStartup()
-        {
-            Microsoft.Win32.RegistryKey regkey =
-                Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
-                @"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            regkey.DeleteValue(Application.ProductName, false);
-            regkey.Close();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //設定ファイルパスを開く
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //設定書き出しをする！
+            Application.Restart();
         }
 
         private void Config_Load(object sender, EventArgs e)

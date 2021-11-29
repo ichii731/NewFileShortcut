@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFileShortcut", "NewFileShortcut\NewFileShortcut.csproj", "{2383B93A-3240-4342-A765-E6D3399CC828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewFileShortcut", "NewFileShortcut\NewFileShortcut.csproj", "{2383B93A-3240-4342-A765-E6D3399CC828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

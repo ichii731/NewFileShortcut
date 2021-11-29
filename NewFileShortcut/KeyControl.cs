@@ -14,7 +14,14 @@ namespace NewFileShortcut
 {
     class KeyControl
     {
-        int vkey;
+        private int key;
+        private bool ctrl;
+        private bool shift;
+        private bool alt;
+        private string name;
+        private string ext;
+        private string content;
+
         // Declare external functions.
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
@@ -22,17 +29,26 @@ namespace NewFileShortcut
         [DllImport("user32.dll")]
         private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
-        public KeyControl(int _vkey)
+        public KeyControl(int _vkey,
+            bool _ctrl,
+            bool _shift,
+            bool _alt,
+            string _name,
+            string _ext,
+            string _content)
         {
             //コンストラクタで35行目の引数を作成
-            vkey = _vkey;
+            key = _vkey;
+            name = _name;
+            ext = _ext;
+            content = _content;
         }
 
         public void StartKeyControl()
         {
             var keyboardHookManager = new KeyboardHookManager();
             keyboardHookManager.Start();
-            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, vkey, () =>
+            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, key, () =>
             {
                 // STAスレッド
                 var t = new Thread(() =>
@@ -45,8 +61,7 @@ namespace NewFileShortcut
             });
         }
 
-
-        static void CreateProcess()
+        public void CreateProcess()
         {
             try
             {
@@ -78,14 +93,11 @@ namespace NewFileShortcut
 
                                 //FileStream fs = File.Create(getfile + "/new.csv");
                                 //fs.Close();
-                                File.WriteAllText(getfile + "/new.csv", "a,b,c,d,e,");
+                                File.WriteAllText(getfile + "/" + name + "." + ext, content);
                             }
                         }
 
                     }
-
-                    //MessageBox.Show(buff.ToString());
-                    //MessageBox.Show(handle.ToString());    
 
                 }
             }

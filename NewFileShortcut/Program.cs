@@ -21,9 +21,23 @@ namespace NewFileShortcut
             //Application.Run(new MainForm());
             new MainForm();
 
-            //ここにforEachで設定を回してキー割り当ての値を元に新規作成
-            KeyControl kc = new KeyControl(int.Parse(ConfigurationManager.AppSettings["key"]));
-            kc.StartKeyControl();
+                //ここにforEachで設定を回してキー割り当ての値を元に新規作成
+         JsonRW keyJson = JsonRW.JsonRead();
+
+            foreach (var keyConfig in keyJson.key)
+            {
+                if (keyConfig.active)
+                {
+                    KeyControl kc = new KeyControl(int.Parse(keyConfig.key),
+                        keyConfig.ctrl,
+                        keyConfig.shift,
+                        keyConfig.alt,
+                        keyConfig.name,
+                        keyConfig.ext,
+                        keyConfig.content);
+                    kc.StartKeyControl();
+                }
+            }
             Application.Run();
         }
     }
