@@ -29,33 +29,39 @@ namespace NewFileShortcut
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.key1 = new System.Windows.Forms.TextBox();
-            this.ctrl1 = new System.Windows.Forms.CheckBox();
-            this.alt1 = new System.Windows.Forms.CheckBox();
-            this.shift1 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.key = new System.Windows.Forms.TextBox();
+            this.ctrl = new System.Windows.Forms.CheckBox();
+            this.alt = new System.Windows.Forms.CheckBox();
+            this.shift = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.plus = new System.Windows.Forms.Label();
-            this.ext1 = new System.Windows.Forms.TextBox();
+            this.ext = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.name1 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.content1 = new System.Windows.Forms.TextBox();
+            this.content = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Content = new System.Windows.Forms.TextBox();
-            this.active1 = new System.Windows.Forms.CheckBox();
+            this.active = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.key1);
-            this.groupBox1.Controls.Add(this.ctrl1);
-            this.groupBox1.Controls.Add(this.alt1);
-            this.groupBox1.Controls.Add(this.shift1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.key);
+            this.groupBox1.Controls.Add(this.ctrl);
+            this.groupBox1.Controls.Add(this.alt);
+            this.groupBox1.Controls.Add(this.shift);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.plus);
@@ -66,48 +72,59 @@ namespace NewFileShortcut
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "キー割り当て";
             // 
-            // key1
+            // label7
             // 
-            this.key1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.key1.Location = new System.Drawing.Point(36, 26);
-            this.key1.MaxLength = 1;
-            this.key1.Name = "key1";
-            this.key1.ShortcutsEnabled = false;
-            this.key1.Size = new System.Drawing.Size(100, 23);
-            this.key1.TabIndex = 8;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(6, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 15);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "仮想キー番号";
             // 
-            // ctrl1
+            // key
             // 
-            this.ctrl1.AutoSize = true;
-            this.ctrl1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ctrl1.Location = new System.Drawing.Point(224, 26);
-            this.ctrl1.Name = "ctrl1";
-            this.ctrl1.Size = new System.Drawing.Size(51, 24);
-            this.ctrl1.TabIndex = 5;
-            this.ctrl1.Text = "Ctrl";
-            this.ctrl1.UseVisualStyleBackColor = true;
+            this.key.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.key.Location = new System.Drawing.Point(81, 25);
+            this.key.MaxLength = 1;
+            this.key.Name = "key";
+            this.key.ShortcutsEnabled = false;
+            this.key.Size = new System.Drawing.Size(100, 23);
+            this.key.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.key, "「T」や「H」などのキーの直接入力には対応していません。\r\nウィンドウ右上から仮想キー番号対照表にアクセスして、対象のキー番号を数字で入力してください！");
             // 
-            // alt1
+            // ctrl
             // 
-            this.alt1.AutoSize = true;
-            this.alt1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.alt1.Location = new System.Drawing.Point(407, 26);
-            this.alt1.Name = "alt1";
-            this.alt1.Size = new System.Drawing.Size(47, 24);
-            this.alt1.TabIndex = 4;
-            this.alt1.Text = "Alt";
-            this.alt1.UseVisualStyleBackColor = true;
+            this.ctrl.AutoSize = true;
+            this.ctrl.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ctrl.Location = new System.Drawing.Point(224, 26);
+            this.ctrl.Name = "ctrl";
+            this.ctrl.Size = new System.Drawing.Size(51, 24);
+            this.ctrl.TabIndex = 5;
+            this.ctrl.Text = "Ctrl";
+            this.ctrl.UseVisualStyleBackColor = true;
             // 
-            // shift1
+            // alt
             // 
-            this.shift1.AutoSize = true;
-            this.shift1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.shift1.Location = new System.Drawing.Point(312, 26);
-            this.shift1.Name = "shift1";
-            this.shift1.Size = new System.Drawing.Size(58, 24);
-            this.shift1.TabIndex = 3;
-            this.shift1.Text = "Shift";
-            this.shift1.UseVisualStyleBackColor = true;
+            this.alt.AutoSize = true;
+            this.alt.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.alt.Location = new System.Drawing.Point(407, 26);
+            this.alt.Name = "alt";
+            this.alt.Size = new System.Drawing.Size(47, 24);
+            this.alt.TabIndex = 4;
+            this.alt.Text = "Alt";
+            this.alt.UseVisualStyleBackColor = true;
+            // 
+            // shift
+            // 
+            this.shift.AutoSize = true;
+            this.shift.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.shift.Location = new System.Drawing.Point(312, 26);
+            this.shift.Name = "shift";
+            this.shift.Size = new System.Drawing.Size(58, 24);
+            this.shift.TabIndex = 3;
+            this.shift.Text = "Shift";
+            this.shift.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -139,12 +156,12 @@ namespace NewFileShortcut
             this.plus.TabIndex = 0;
             this.plus.Text = "＋";
             // 
-            // ext1
+            // ext
             // 
-            this.ext1.Location = new System.Drawing.Point(282, 136);
-            this.ext1.Name = "ext1";
-            this.ext1.Size = new System.Drawing.Size(100, 23);
-            this.ext1.TabIndex = 16;
+            this.ext.Location = new System.Drawing.Point(282, 136);
+            this.ext.Name = "ext";
+            this.ext.Size = new System.Drawing.Size(100, 23);
+            this.ext.TabIndex = 16;
             // 
             // label3
             // 
@@ -156,12 +173,12 @@ namespace NewFileShortcut
             this.label3.TabIndex = 15;
             this.label3.Text = ".";
             // 
-            // name1
+            // name
             // 
-            this.name1.Location = new System.Drawing.Point(12, 136);
-            this.name1.Name = "name1";
-            this.name1.Size = new System.Drawing.Size(247, 23);
-            this.name1.TabIndex = 13;
+            this.name.Location = new System.Drawing.Point(12, 136);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(247, 23);
+            this.name.TabIndex = 13;
             // 
             // textBox1
             // 
@@ -170,14 +187,14 @@ namespace NewFileShortcut
             this.textBox1.Size = new System.Drawing.Size(247, 23);
             this.textBox1.TabIndex = 14;
             // 
-            // content1
+            // content
             // 
-            this.content1.Location = new System.Drawing.Point(12, 182);
-            this.content1.Multiline = true;
-            this.content1.Name = "content1";
-            this.content1.Size = new System.Drawing.Size(510, 121);
-            this.content1.TabIndex = 10;
-            this.content1.TabStop = false;
+            this.content.Location = new System.Drawing.Point(12, 182);
+            this.content.Multiline = true;
+            this.content.Name = "content";
+            this.content.Size = new System.Drawing.Size(510, 121);
+            this.content.TabIndex = 10;
+            this.content.TabStop = false;
             // 
             // label2
             // 
@@ -189,24 +206,16 @@ namespace NewFileShortcut
             this.label2.TabIndex = 12;
             this.label2.Text = "ファイル内容";
             // 
-            // Content
+            // active
             // 
-            this.Content.Location = new System.Drawing.Point(12, 182);
-            this.Content.Multiline = true;
-            this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(510, 121);
-            this.Content.TabIndex = 11;
-            // 
-            // active1
-            // 
-            this.active1.AutoSize = true;
-            this.active1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.active1.Location = new System.Drawing.Point(12, 12);
-            this.active1.Name = "active1";
-            this.active1.Size = new System.Drawing.Size(181, 21);
-            this.active1.TabIndex = 9;
-            this.active1.Text = "割り当て1の設定を有効にする";
-            this.active1.UseVisualStyleBackColor = true;
+            this.active.AutoSize = true;
+            this.active.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.active.Location = new System.Drawing.Point(12, 12);
+            this.active.Name = "active";
+            this.active.Size = new System.Drawing.Size(74, 21);
+            this.active.TabIndex = 9;
+            this.active.Text = "IsActive";
+            this.active.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -229,22 +238,45 @@ namespace NewFileShortcut
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(282, 116);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "拡張子";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.Location = new System.Drawing.Point(373, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(155, 17);
+            this.linkLabel1.TabIndex = 20;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "仮想キー番号対照表はこちら";
+            // 
             // setKeyInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(538, 356);
+            this.ClientSize = new System.Drawing.Size(535, 356);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ext1);
+            this.Controls.Add(this.ext);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.name1);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.content1);
+            this.Controls.Add(this.content);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Content);
-            this.Controls.Add(this.active1);
+            this.Controls.Add(this.active);
             this.Controls.Add(this.label1);
             this.Name = "setKeyInfo";
             this.Text = "setKeyInfo";
@@ -258,22 +290,26 @@ namespace NewFileShortcut
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox key1;
-        private System.Windows.Forms.CheckBox ctrl1;
-        private System.Windows.Forms.CheckBox alt1;
-        private System.Windows.Forms.CheckBox shift1;
+        private System.Windows.Forms.TextBox key;
+        private System.Windows.Forms.CheckBox ctrl;
+        private System.Windows.Forms.CheckBox alt;
+        private System.Windows.Forms.CheckBox shift;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label plus;
-        private System.Windows.Forms.TextBox ext1;
+        private System.Windows.Forms.TextBox ext;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox name1;
+        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox content1;
+        private System.Windows.Forms.TextBox content;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Content;
-        private System.Windows.Forms.CheckBox active1;
+        private System.Windows.Forms.CheckBox active;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

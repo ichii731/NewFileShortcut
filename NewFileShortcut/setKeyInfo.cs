@@ -5,7 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,57 +16,90 @@ namespace NewFileShortcut
 {
     public partial class setKeyInfo : Form
     {
+        int id;
+        JsonRW keyJson = new JsonRW();
+        string json_file = File.ReadAllText(Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\config\key.json", Encoding.UTF8);
+
         public setKeyInfo(int _id)
         {
-            this.Text = "プロファイル" + _id + " 割り当て設定";
             InitializeComponent();
-            JsonRW keyJson = JsonRW.JsonRead();
-            active1.Checked = keyJson.key[0].active;
-            key1.Text = keyJson.key[0].key;
-            ctrl1.Checked = keyJson.key[0].ctrl;
-            shift1.Checked = keyJson.key[0].shift;
-            alt1.Checked = keyJson.key[0].alt;
+            this.Text = "プロファイル" + _id + " 割り当て設定";
+            active.Text = "プロファイル" + _id + "の設定を有効にする";
+            id = _id - 1;
+            try
+            {
+                keyJson = JsonSerializer.Deserialize<JsonRW>(json_file);
+                active.Checked = keyJson.key[id].active;
+                key.Text = keyJson.key[id].key;
+                ctrl.Checked = keyJson.key[id].ctrl;
+                shift.Checked = keyJson.key[id].shift;
+                alt.Checked = keyJson.key[id].alt;
 
-            name1.Text = keyJson.key[0].name;
-            ext1.Text = keyJson.key[0].ext;
-            content1.Text = keyJson.key[0].content;
+                name.Text = keyJson.key[id].name;
+                ext.Text = keyJson.key[id].ext;
+                content.Text = keyJson.key[id].content;
+
+            }
+            catch (Exception readerr)
+            {
+                MessageBox.Show("設定の読み込みに失敗しました。\n" + readerr.Message);
+                this.Close();
+            }
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                keyJson = JsonSerializer.Deserialize<JsonRW>(json_file);
+                keyJson.key[id].key = key.Text;
+                keyJson.key[id].name = name.Text;
+                keyJson.key[id].ext = ext.Text;
+                keyJson.key[id].content = content.Text;
 
-            JsonRW keyJson = JsonRW.JsonRead();
-            keyJson.key[0].key = key1.Text;
-            keyJson.key[0].name = name1.Text;
-            keyJson.key[0].ext = ext1.Text;
-            keyJson.key[0].content = content1.Text;
+                if (ctrl.Checked)
+                {
+                    keyJson.key[id].ctrl = true;
+                }
+                else
+                {
+                    keyJson.key[id].ctrl = false;
+                }
+                if (shift.Checked)
+                {
+                    keyJson.key[id].shift = true;
+                }
+                else
+                {
+                    keyJson.key[id].shift = false;
+                }
+                if (alt.Checked)
+                {
+                    keyJson.key[id].alt = true;
+                }
+                else
+                {
+                    keyJson.key[id].alt = false;
+                }
 
-            if (ctrl1.Checked)
-            {
-                keyJson.key[0].ctrl = true;
+
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                };
+                var json = JsonSerializer.Serialize(keyJson, options);
+                File.WriteAllText(Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\config\key.json", json);
+                MessageBox.Show("正常に保存しました。再起動後に適用されます。");
+                this.Close();
             }
-            else
+            catch (Exception writeerr)
             {
-                keyJson.key[0].ctrl = false;
-            }
-            if (shift1.Checked)
-            {
-                keyJson.key[0].shift = true;
-            }
-            else
-            {
-                keyJson.key[0].shift = false;
-            }
-            if (alt1.Checked)
-            {
-                keyJson.key[0].alt = true;
-            }
-            else
-            {
-                keyJson.key[0].alt = false;
+                MessageBox.Show("設定ファイルの書き込みに失敗しました。権限などを確認してください。\n" + writeerr.Message) ;
+                
             }
 
-            File.WriteAllText(@"C:\Users\tomomi\Downloads\key.json", JsonRW.JsonWrite(keyJson));
+
         }
     }
 }

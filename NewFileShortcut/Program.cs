@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace NewFileShortcut
@@ -21,24 +21,35 @@ namespace NewFileShortcut
             //Application.Run(new MainForm());
             new MainForm();
 
-                //ここにforEachで設定を回してキー割り当ての値を元に新規作成
-         JsonRW keyJson = JsonRW.JsonRead();
-
-            foreach (var keyConfig in keyJson.key)
+            //ここにforEachで設定を回してキー割り当ての値を元に新規作成
+            try
             {
-                if (keyConfig.active)
+                JsonRW keyJson = new JsonRW();
+                string json_file = File.ReadAllText(Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\config\key.json", Encoding.UTF8);
+                keyJson = JsonSerializer.Deserialize<JsonRW>(json_file);
+                foreach (var keyConfig in keyJson.key)
                 {
-                    KeyControl kc = new KeyControl(int.Parse(keyConfig.key),
-                        keyConfig.ctrl,
-                        keyConfig.shift,
-                        keyConfig.alt,
-                        keyConfig.name,
-                        keyConfig.ext,
-                        keyConfig.content);
-                    kc.StartKeyControl();
+                    if (keyConfig.active)
+                    {
+                        KeyControl kc = new KeyControl(int.Parse(keyConfig.key),
+                            keyConfig.ctrl,
+                            keyConfig.shift,
+                            keyConfig.alt,
+                            keyConfig.name,
+                            keyConfig.ext,
+                            keyConfig.content);
+                        kc.StartKeyControl();
+                    }
                 }
+
+                Application.Run();
             }
-            Application.Run();
+            catch (Exception e)
+            {
+                MessageBox.Show("設定ファイルの読み込みに失敗しました\n確認して再起動してください");
+                Application.Exit();
+            }
+
         }
     }
 }

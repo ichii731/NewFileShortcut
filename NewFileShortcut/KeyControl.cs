@@ -50,7 +50,7 @@ namespace NewFileShortcut
             keyboardHookManager.Start();
             keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, key, () =>
             {
-                // STAスレッド
+                // スレッド
                 var t = new Thread(() =>
                 {
                     CreateProcess();

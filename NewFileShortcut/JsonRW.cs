@@ -33,17 +33,11 @@ namespace NewFileShortcut
         }
 
 
-        public static JsonRW JsonRead()
+        public static JsonRW JsonRead(string _json_file)
         {
-            string json_file = File.ReadAllText(@"C:\Users\tomomi\Downloads\key.json", Encoding.UTF8);
-
-            if (String.IsNullOrEmpty(json_file))
-            {
-                return null;
-            }
             try
             {
-                JsonRW keyJson = JsonSerializer.Deserialize<JsonRW>(json_file);
+                JsonRW keyJson = JsonSerializer.Deserialize<JsonRW>(_json_file);
                 return keyJson;
             }
             catch (JsonException e)

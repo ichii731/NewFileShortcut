@@ -37,12 +37,8 @@ namespace NewFileShortcut
             this.profile3 = new System.Windows.Forms.Button();
             this.profile2 = new System.Windows.Forms.Button();
             this.profile1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -106,6 +102,7 @@ namespace NewFileShortcut
             this.profile3.TabIndex = 2;
             this.profile3.Text = "プロファイル3";
             this.profile3.UseVisualStyleBackColor = true;
+            this.profile3.Click += new System.EventHandler(this.profile3_Click);
             // 
             // profile2
             // 
@@ -116,6 +113,7 @@ namespace NewFileShortcut
             this.profile2.TabIndex = 1;
             this.profile2.Text = "プロファイル2";
             this.profile2.UseVisualStyleBackColor = true;
+            this.profile2.Click += new System.EventHandler(this.profile2_Click);
             // 
             // profile1
             // 
@@ -127,37 +125,6 @@ namespace NewFileShortcut
             this.profile1.Text = "プロファイル1";
             this.profile1.UseVisualStyleBackColor = true;
             this.profile1.Click += new System.EventHandler(this.profile1_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(13, 302);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 95);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "割り当て情報の管理";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(180, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 60);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "設定をエクスポート";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(31, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 60);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "設定をインポート";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -175,9 +142,8 @@ namespace NewFileShortcut
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(367, 409);
+            this.ClientSize = new System.Drawing.Size(367, 288);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
             this.Name = "KeyConfig";
@@ -185,7 +151,6 @@ namespace NewFileShortcut
             this.Load += new System.EventHandler(this.KeyConfig_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,9 +165,6 @@ namespace NewFileShortcut
         private System.Windows.Forms.Button profile3;
         private System.Windows.Forms.Button profile2;
         private System.Windows.Forms.Button profile1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
     }
 }
