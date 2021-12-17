@@ -59,5 +59,15 @@ namespace NewFileShortcut.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap About_by_SATO {
+            get {
+                object obj = ResourceManager.GetObject("About_by_SATO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -36,8 +36,12 @@ namespace NewFileShortcut
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -55,9 +59,9 @@ namespace NewFileShortcut
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 25);
+            this.label1.Size = new System.Drawing.Size(287, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "NewFileShortcut v1.1";
+            this.label1.Text = "NewFileShortcut Kei Edition v1.1";
             // 
             // label2
             // 
@@ -65,14 +69,14 @@ namespace NewFileShortcut
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 34);
+            this.label2.Size = new System.Drawing.Size(161, 51);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Developed by @ichii731\r\nhttps://ic731.net";
+            this.label2.Text = "Developed by @ichii731\r\nhttps://ic731.net\r\nLicensed under the GPL v3\r\n";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(37, 99);
+            this.groupBox1.Location = new System.Drawing.Point(37, 177);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 89);
             this.groupBox1.TabIndex = 3;
@@ -83,7 +87,7 @@ namespace NewFileShortcut
             // 
             this.groupBox2.Controls.Add(this.linkLabel2);
             this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Location = new System.Drawing.Point(37, 204);
+            this.groupBox2.Location = new System.Drawing.Point(37, 272);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(295, 89);
             this.groupBox2.TabIndex = 4;
@@ -95,10 +99,10 @@ namespace NewFileShortcut
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(38, 56);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(74, 15);
+            this.linkLabel2.Size = new System.Drawing.Size(85, 15);
             this.linkLabel2.TabIndex = 1;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "GitHub Issue";
+            this.linkLabel2.Text = "GitHub Project";
             // 
             // linkLabel1
             // 
@@ -110,21 +114,56 @@ namespace NewFileShortcut
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "ご意見や問い合わせ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(12, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(330, 51);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "画像ライセンス：\r\n© 2021 Pronama LLC\r\n※コードライセンスと分離しており、　　　　　に準拠しています\r\n";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.linkLabel3.Location = new System.Drawing.Point(187, 143);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(62, 17);
+            this.linkLabel3.TabIndex = 6;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "ガイドライン";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::NewFileShortcut.Properties.Resources.About_by_SATO;
+            this.pictureBox1.Location = new System.Drawing.Point(348, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(288, 428);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // AboutApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(368, 326);
+            this.ClientSize = new System.Drawing.Size(608, 385);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "AboutApp";
             this.Text = "アプリについて";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +178,8 @@ namespace NewFileShortcut
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -2,7 +2,6 @@
 using SHDocVw;
 using Shell32;
 using System;
-using System.Configuration;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -37,62 +36,126 @@ namespace NewFileShortcut
             string _ext,
             string _content)
         {
-            //コンストラクタで35行目の引数を作成
+            //コンストラクタで引数を作成
             key = _vkey;
             name = _name;
             ext = _ext;
             content = _content;
+            ctrl = _ctrl;
+            alt = _alt;
+            shift = _shift;
         }
 
         public void StartKeyControl()
         {
-            var keyboardHookManager = new KeyboardHookManager();
+            KeyboardHookManager keyboardHookManager = new KeyboardHookManager();
             keyboardHookManager.Start();
-            keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, key, () =>
-            {
-                // スレッド
-                var t = new Thread(() =>
-                {
-                    CreateProcess();
-                });
 
-                t.SetApartmentState(ApartmentState.STA);
-                t.Start();
+            if (ctrl && shift && alt)
+            {
+                // ctrl + alt + shift
+                keyboardHookManager.RegisterHotkey(new[] { NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt, NonInvasiveKeyboardHookLibrary.ModifierKeys.Shift }, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (ctrl && shift && !alt)
+            {
+                // ctrl + shift
+                keyboardHookManager.RegisterHotkey(new[] { NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, NonInvasiveKeyboardHookLibrary.ModifierKeys.Shift }, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (ctrl && !shift && alt)
+            {
+                // ctrl + alt
+                keyboardHookManager.RegisterHotkey(new[] { NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt }, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (!ctrl && shift && alt)
+            {
+                // shift + alt
+                keyboardHookManager.RegisterHotkey(new[] { NonInvasiveKeyboardHookLibrary.ModifierKeys.Shift, NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt }, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (ctrl && !shift && !alt)
+            {
+                // ctrl
+                keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Control, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (shift)
+            {
+                // shift
+                keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Shift, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (!ctrl && !shift && alt)
+            {
+                // alt
+                keyboardHookManager.RegisterHotkey(NonInvasiveKeyboardHookLibrary.ModifierKeys.Alt, key, () =>
+                {
+                    createThread();
+                });
+            }
+            else if (!ctrl && !shift && !alt)
+            {
+                // None
+                keyboardHookManager.RegisterHotkey(key, () =>
+                {
+                    createThread();
+                });
+            }
+        }
+
+        public void createThread()
+        {
+
+            Thread t = new Thread(() =>
+            {
+                CreateProcess();
             });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
         }
 
         public void CreateProcess()
         {
             try
             {
-                //COMのShellクラス作成
+                // Create shell class
                 Shell shell = new Shell();
-                //IEとエクスプローラの一覧を取得
+                // Get all Explore&IE path
                 ShellWindows win = shell.Windows();
 
                 int chars = 256;
                 StringBuilder buff = new StringBuilder(chars);
 
-                // Obtain the handle of the active window.
+                // Obtain the handle of the active window
                 IntPtr handle = GetForegroundWindow();
 
-
-                // Update the controls.
+                // Update control
                 if (GetWindowText(handle, buff, chars) > 0)
                 {
                     foreach (IWebBrowser2 web in win)
                     {
-                        //エクスプローラのみ(IEを除外)
+                        //Exclude IE Path
                         if (Path.GetFileName(web.FullName).ToUpper() == "EXPLORER.EXE")
                         {
                             if (buff.ToString() == web.LocationName)
                             {
                                 string getfile = web.LocationURL.Remove(0, 8);
                                 getfile = System.Web.HttpUtility.UrlDecode(getfile);
-                                //リストに追加
 
-                                //FileStream fs = File.Create(getfile + "/new.csv");
-                                //fs.Close();
                                 File.WriteAllText(getfile + "/" + name + "." + ext, content);
                             }
                         }
