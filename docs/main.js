@@ -1,10 +1,11 @@
 const router = new VueRouter({
     mode: 'history',
+    base: '/NewFileShortcut/',
     routes: [
-        { path: 'NewFileShortcut/', component: httpVueLoader('./vue/top.vue') },
-        { path: 'NewFileShortcut/tutorial', component: httpVueLoader('./vue/tutorial.vue') },
-        { path: 'NewFileShortcut/release', component: httpVueLoader('./vue/release.vue') },
-        { path: 'NewFileShortcut/vkey', component: httpVueLoader('./vue/vkey.vue') }
+        { path: '/', component: httpVueLoader('./vue/top.vue') },
+        { path: '/tutorial', component: httpVueLoader('./vue/tutorial.vue') },
+        { path: '/release', component: httpVueLoader('./vue/release.vue') },
+        { path: '/vkey', component: httpVueLoader('./vue/vkey.vue') }
     ]
 })
 
