@@ -37,12 +37,12 @@ module.exports = {
         n: "twitter:description",
         c: "新規ファイルを指定のショートカットキーで作成できるWindowsソフトウェアです。ファイル内容も設定可能！",
       },
-      { n: "twitter:card", c: "https://ic731.net/NewFileShortcut/bin/ogp.jpg" },
+      { n: "twitter:card", c: "https://ic731.net/NewFileShortcut/assets/ogp.jpg" },
       // ...
       // Facebook / Open Graph
       { property: "og:title", content: "NewFileShortCut - 新規ファイルを一発で作成" },
       // with shorthand
-      { p: "og:image", c: "https://ic731.net/NewFileShortcut/bin/ogp.jpg" },
+      { p: "og:image", c: "https://ic731.net/NewFileShortcut/assets/ogp.jpg" },
       // ...
     ],
   },
