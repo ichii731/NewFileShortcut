@@ -2,55 +2,52 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="bin/nfs.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-    integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="bin/nfs.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="NewFileShortcut/style.css" />
 </head>
 
 <body>
 
-  <div id="app">
-    <main>
-      <div class="row">
-        <div class="one-third column">
-          <h1>NewFileShortcut</h1>
-          <router-link to="/" custom v-slot="{ navigate }">
-            <a @click="navigate">ホーム</a>
-          </router-link> / 
-          <router-link to="/release" custom v-slot="{ navigate }">
-            <a @click="navigate">リリースノート</a>
-          </router-link>
-          <p><b>新規ファイルを指定のショートカットキーで作成できる</b>Windowsソフトウェアです。ファイル内容も設定可能！</p>
-          <img src="bin/cover.webp" width="100%">
-          <button class="button-primary">ダウンロード(通常版)</button>
-          <button>ダウンロード(Kei-Edition)</button><br>
-          ※Kei-EditionとはUIが暮井 慧さん仕様になっているバージョンです<br>
-          ※The English version will be released in the future.
-        </div>
-        <div class="two-thirds column">
-          <router-view></router-view>
-        </div>
-      </div>
-    </main>
-  </div>
-  <!-- Vue -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <div id="app">
+        <main>
+            <div class="row">
+                <div class="one-third column">
+                    <h1>NewFileShortcut</h1>
+                    <router-link to="NewFileShortcut/" custom v-slot="{ navigate }">
+                        <a @click="navigate">ホーム</a>
+                    </router-link> /
+                    <router-link to="NewFileShortcut/release" custom v-slot="{ navigate }">
+                        <a @click="navigate">リリースノート</a>
+                    </router-link>
+                    <p><b>新規ファイルを指定のショートカットキーで作成できる</b>Windowsソフトウェアです。ファイル内容も設定可能！</p>
+                    <img src="NewFileShortcut/bin/cover.webp" width="100%">
+                    <button class="button-primary">ダウンロード(通常版)</button>
+                    <button>ダウンロード(Kei-Edition)</button><br> ※Kei-EditionとはUIが暮井 慧さん仕様になっているバージョンです<br> ※The English version will be released in the future.
+                </div>
+                <div class="two-thirds column">
+                    <router-view></router-view>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 
-  <!-- Vue Router -->
-  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.3/dist/vue-router.min.js"></script>
+    <!-- Vue Router -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.3/dist/vue-router.min.js"></script>
 
-  <!-- Vue Loader -->
-  <script src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.2/src/httpVueLoader.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-head@2.2.0/vue-head.min.js"></script>
-  <script src='https://cdn.jsdelivr.net/npm/markdown-wasm@1.2.0/dist/markdown.min.js'></script>
-  <script src=" ./main.js">
-  </script>
+    <!-- Vue Loader -->
+    <script src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.2/src/httpVueLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-head@2.2.0/vue-head.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/markdown-wasm@1.2.0/dist/markdown.min.js'></script>
+    <script src="NewFileShortcut/main.js">
+    </script>
 
 </body>
 
