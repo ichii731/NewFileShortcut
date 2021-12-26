@@ -4,14 +4,24 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon />
+    <ApplicationIcon>kei-icon.ico</ApplicationIcon>
     <Win32Resource />
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.1</Version>
     <Authors>ichii731</Authors>
-    <Copyright>© 2020-21 IchiiLab by 市井P All Rights Reserved.</Copyright>
+    <Copyright>© 2020-21 Ichii731 All Rights Reserved.</Copyright>
     <PackageProjectUrl>https://ic731.net/NewFileShortcut</PackageProjectUrl>
+    <PackageId>NewFileShortcut Kei-Edition</PackageId>
+    <Product>NewFileShortcut Kei-Edition</Product>
+    <RepositoryUrl>https://github.com/ichii731/NewFileShortcut</RepositoryUrl>
+    <PackageIcon>kei-icon.png</PackageIcon>
+    <PackageIconUrl />
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AssemblyName>NewFileShortcut Kei-Edition</AssemblyName>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <StartupObject />
+    <PackageLicenseExpression>Please see https://ic731.net/NewFileShortcut</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -67,6 +77,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\..\..\..\Downloads\kei-icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

@@ -30,6 +30,7 @@ namespace NewFileShortcut
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setKeyInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.key = new System.Windows.Forms.TextBox();
@@ -52,7 +53,9 @@ namespace NewFileShortcut
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -230,7 +233,7 @@ namespace NewFileShortcut
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.saveButton.Location = new System.Drawing.Point(387, 319);
+            this.saveButton.Location = new System.Drawing.Point(387, 320);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(135, 25);
             this.saveButton.TabIndex = 18;
@@ -260,12 +263,23 @@ namespace NewFileShortcut
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "仮想キー番号対照表はこちら";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::NewFileShortcut.Properties.Resources.keyConfig;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 223);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(551, 262);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
             // setKeyInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(535, 356);
+            this.ClientSize = new System.Drawing.Size(535, 436);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.saveButton);
@@ -278,10 +292,13 @@ namespace NewFileShortcut
             this.Controls.Add(this.label2);
             this.Controls.Add(this.active);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "setKeyInfo";
             this.Text = "setKeyInfo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +328,6 @@ namespace NewFileShortcut
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

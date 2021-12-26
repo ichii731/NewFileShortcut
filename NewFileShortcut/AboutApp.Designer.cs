@@ -29,6 +29,7 @@ namespace NewFileShortcut
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutApp));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@ namespace NewFileShortcut
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -52,6 +52,7 @@ namespace NewFileShortcut
             this.button1.TabIndex = 0;
             this.button1.Text = "アップデートを確認する";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -103,16 +104,18 @@ namespace NewFileShortcut
             this.linkLabel2.TabIndex = 1;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "GitHub Project";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(38, 28);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(106, 15);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "ご意見や問い合わせ";
+            this.linkLabel1.Text = "ホームページ / ご連絡";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label3
             // 
@@ -120,20 +123,9 @@ namespace NewFileShortcut
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(12, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(330, 51);
+            this.label3.Size = new System.Drawing.Size(321, 51);
             this.label3.TabIndex = 5;
-            this.label3.Text = "画像ライセンス：\r\n© 2021 Pronama LLC\r\n※コードライセンスと分離しており、　　　　　に準拠しています\r\n";
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.linkLabel3.Location = new System.Drawing.Point(187, 143);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(62, 17);
-            this.linkLabel3.TabIndex = 6;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "ガイドライン";
+            this.label3.Text = "画像ライセンス：\r\n© 2021 Pronama LLC\r\n※コードライセンスと分離しており、ガイドラインに準拠しています\r\n";
             // 
             // pictureBox1
             // 
@@ -151,13 +143,13 @@ namespace NewFileShortcut
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(608, 385);
-            this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutApp";
             this.Text = "アプリについて";
             this.groupBox1.ResumeLayout(false);
@@ -179,7 +171,6 @@ namespace NewFileShortcut
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

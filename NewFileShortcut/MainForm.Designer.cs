@@ -34,14 +34,11 @@ namespace NewFileShortcut
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ujuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.使い方チュートリアルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.uuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,56 +51,23 @@ namespace NewFileShortcut
             // 
             // contextMenu
             // 
+            this.contextMenu.BackgroundImage = global::NewFileShortcut.Properties.Resources.kei_mainContext;
+            this.contextMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
-            this.ujuToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.uuToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.toolStripSeparator2,
             this.toolStripMenuItem3});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(186, 126);
+            this.contextMenu.Size = new System.Drawing.Size(186, 142);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(185, 22);
             this.toolStripMenuItem4.Text = "NewFileShortcut v1.1";
-            // 
-            // ujuToolStripMenuItem
-            // 
-            this.ujuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.使い方チュートリアルToolStripMenuItem});
-            this.ujuToolStripMenuItem.Name = "ujuToolStripMenuItem";
-            this.ujuToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ujuToolStripMenuItem.Text = "アプリについて";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
-            this.toolStripMenuItem1.Text = "アプリ情報・バージョン確認";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // 使い方チュートリアルToolStripMenuItem
-            // 
-            this.使い方チュートリアルToolStripMenuItem.Name = "使い方チュートリアルToolStripMenuItem";
-            this.使い方チュートリアルToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.使い方チュートリアルToolStripMenuItem.Text = "使い方(チュートリアル)";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
-            // 
-            // uuToolStripMenuItem
-            // 
-            this.uuToolStripMenuItem.Name = "uuToolStripMenuItem";
-            this.uuToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.uuToolStripMenuItem.Text = "キー割り当て設定";
-            this.uuToolStripMenuItem.Click += new System.EventHandler(this.uuToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -124,11 +88,26 @@ namespace NewFileShortcut
             this.toolStripMenuItem3.Text = "終了";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItem1.Text = "使い方";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItem5.Text = "アプリ情報・更新";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -141,15 +120,12 @@ namespace NewFileShortcut
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
-        private System.Windows.Forms.ToolStripMenuItem ujuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 使い方チュートリアルToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

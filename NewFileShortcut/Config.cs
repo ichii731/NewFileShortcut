@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace NewFileShortcut
@@ -13,7 +14,7 @@ namespace NewFileShortcut
         {
             InitializeComponent();
             string regValue = (string)regkey.GetValue(Application.ProductName);
-            if (regValue == Application.ExecutablePath)
+            if (regValue == Assembly.GetExecutingAssembly().Location)
             {
                 checkBox1.Checked = true;
             }
@@ -23,7 +24,7 @@ namespace NewFileShortcut
         {
             if (checkBox1.Checked)
             {
-                regkey.SetValue(Application.ProductName, Application.ExecutablePath);
+                regkey.SetValue(Application.ProductName, Assembly.GetExecutingAssembly().Location);
                 regkey.Close();
             }
             else
