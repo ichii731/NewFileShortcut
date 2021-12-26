@@ -48,6 +48,7 @@ namespace NewFileShortcut
             this.button1.TabIndex = 0;
             this.button1.Text = "アップデートを確認する";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -65,14 +66,14 @@ namespace NewFileShortcut
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 34);
+            this.label2.Size = new System.Drawing.Size(161, 51);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Developed by @ichii731\r\nhttps://ic731.net";
+            this.label2.Text = "Developed by @ichii731\r\nhttps://ic731.net\r\nLicensed under the GPL v3";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(37, 99);
+            this.groupBox1.Location = new System.Drawing.Point(37, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 89);
             this.groupBox1.TabIndex = 3;
@@ -95,20 +96,22 @@ namespace NewFileShortcut
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(38, 56);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(74, 15);
+            this.linkLabel2.Size = new System.Drawing.Size(85, 15);
             this.linkLabel2.TabIndex = 1;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "GitHub Issue";
+            this.linkLabel2.Text = "GitHub Project";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(38, 28);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(106, 15);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "ご意見や問い合わせ";
+            this.linkLabel1.Text = "ホームページ / ご連絡";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // AboutApp
             // 

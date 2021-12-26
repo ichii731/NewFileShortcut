@@ -4,14 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon />
+    <ApplicationIcon>nfs.ico</ApplicationIcon>
     <Win32Resource />
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.1</Version>
     <Authors>ichii731</Authors>
-    <Copyright>© 2020-21 IchiiLab by 市井P All Rights Reserved.</Copyright>
+    <Copyright>© 2020-21 Ichii731 All Rights Reserved.</Copyright>
     <PackageProjectUrl>https://ic731.net/NewFileShortcut</PackageProjectUrl>
+    <PackageLicenseExpression>Please see https://ic731.net/NewFileShortcut</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/ichii731/NewFileShortcut</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
