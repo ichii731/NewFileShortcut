@@ -64,6 +64,12 @@ namespace NewFileShortcut
         {
             OpenUrl("https://ic731.net/NewFileShortcut/tutorial");
         }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            KeyConfig KeyConfig = new KeyConfig();
+            KeyConfig.Show();   
+        }
     }
 }
 

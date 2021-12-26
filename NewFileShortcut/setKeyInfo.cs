@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,17 @@ namespace NewFileShortcut
         int id;
         JsonRW keyJson = new JsonRW();
         string json_file = File.ReadAllText(Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\config\key.json", Encoding.UTF8);
+
+        private Process OpenUrl(string url)
+        {
+            ProcessStartInfo pi = new ProcessStartInfo()
+            {
+                FileName = url,
+                UseShellExecute = true,
+            };
+
+            return Process.Start(pi);
+        }
 
         public setKeyInfo(int _id)
         {
@@ -100,6 +112,11 @@ namespace NewFileShortcut
             }
 
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenUrl("https://ic731.net/NewFileShortcut/vkey");
         }
     }
 }

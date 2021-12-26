@@ -256,12 +256,13 @@ namespace NewFileShortcut
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.Location = new System.Drawing.Point(373, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(308, 9);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(155, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(214, 17);
             this.linkLabel1.TabIndex = 20;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "仮想キー番号対照表はこちら";
+            this.linkLabel1.Text = "入力方法・仮想キー番号対照表はこちら";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pictureBox1
             // 
