@@ -22,7 +22,7 @@
                     <router-link to="/" custom v-slot="{ navigate }">
                         <a @click="navigate">ホーム</a>
                     </router-link> /
-                    <router-link to="/release-log" custom v-slot="{ navigate }">
+                    <router-link to="/release" custom v-slot="{ navigate }">
                         <a @click="navigate">リリースノート</a>
                     </router-link>
                     <p><b>新規ファイルを指定のショートカットキーで作成できる</b>Windowsソフトウェアです。ファイル内容も設定可能！</p>
@@ -31,6 +31,7 @@
                     <button>ダウンロード(Kei-Edition)</button><br> ※Kei-EditionとはUIが暮井 慧さん仕様になっているバージョンです<br> ※The English version will be released in the future.
                 </div>
                 <div class="two-thirds column">
+                    <h6><mark>読み込まれ無い場合は更新すると表示されます</mark></h6>
                     <router-view></router-view>
                 </div>
             </div>

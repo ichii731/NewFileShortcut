@@ -1,0 +1,12 @@
+body {
+    padding: 14px;
+}
+
+button {
+    font-size: medium;
+}
+
+mark {
+    background-color: #ff0;
+    color: #000;
+}
